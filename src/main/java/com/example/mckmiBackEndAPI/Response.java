@@ -46,11 +46,11 @@ public class Response {
         List<Map<String, Object>> result = new SQLStatementRunner().runStmt(sql);
         ArrayList<Client> clients = new ArrayList<>();
 
-        for (int i = 0; i<result.size();i++) {
-            clients.add(new Client(Integer.parseInt(result.get(i).get("ClientID").toString()),
-                    result.get(i).get("ClientName").toString()));
-            System.out.println( result.get(i).get("ClientID").toString() + "  " +
-                    result.get(i).get("ClientName").toString());
+        for (Map<String, Object> stringObjectMap : result) {
+            clients.add(new Client(Integer.parseInt(stringObjectMap.get("ClientID").toString()),
+                    stringObjectMap.get("ClientName").toString()));
+            System.out.println(stringObjectMap.get("ClientID").toString() + "  " +
+                    stringObjectMap.get("ClientName").toString());
         }
         setClients(clients);
     }
