@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientController {
 
     @GetMapping("/client")
-    public Response client(@RequestParam(required = false, value="ClientID") String clientId){
+    public ClientResponse client(@RequestParam(required = false, value="ClientId") String clientId){
 
 
-          Response response = new Response();
+          ClientResponse clientResponse = new ClientResponse();
           if(clientId!=null){
-              response.getClientData(clientId);
+              clientResponse.getClientData(clientId);
           }else{
-              response.getAllClientData();
+              clientResponse.getAllClientData();
           }
-            return response;
+            return clientResponse;
     }
 
 }
