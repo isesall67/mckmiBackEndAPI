@@ -22,7 +22,7 @@ public class SQLStatementRunner {
 
     }
 
-    public List<Map<String, Object>> runStmt(String sql){
+    public List<Map<String, Object>> runQueryStmt(String sql){
         Statement stmt = null;
         ResultSet rs = null;
         List<Map<String, Object>> result = null;
@@ -39,5 +39,20 @@ public class SQLStatementRunner {
         }
         return result;
     }
+
+
+    public void runStmt(String sql){
+        Statement stmt = null;
+        try {
+            Connection conn = getConnection();
+            stmt = conn.createStatement();
+            stmt.execute(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException  | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

@@ -39,7 +39,7 @@ public class ConsultantResponse {
                 "FROM Consultant " +
                 "WHERE ConsultantID = " + consultantId;
 
-        List<Map<String, Object>> result = new SQLStatementRunner().runStmt(sql);
+        List<Map<String, Object>> result = new SQLStatementRunner().runQueryStmt(sql);
         setConsultants(result);
 
     }
@@ -55,7 +55,7 @@ public class ConsultantResponse {
                 ",ClientID " +
                 "FROM Consultant ";
 
-        List<Map<String, Object>> result = new SQLStatementRunner().runStmt(sql);
+        List<Map<String, Object>> result = new SQLStatementRunner().runQueryStmt(sql);
         setConsultants(result);
     }
 }
