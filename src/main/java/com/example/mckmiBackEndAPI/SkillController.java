@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 @RestController
 public class SkillController {
+
 
     @GetMapping("/skill")
     public SkillResponse skill(@RequestParam(required = false, value="SkillId") String skillId){
